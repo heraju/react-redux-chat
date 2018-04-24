@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import '../App.css'
-import UserList from './UserList'
+import '../css/App.css'
+import FriendList from './FriendList'
+import Login from './Login'
 
 import { fetchUser } from "../actions/userActions"
 
@@ -10,19 +11,18 @@ function mapStateToProps(store) {
   return { user: store.user.user };
 }
 
+
 class Layout extends React.Component {
-  componentWillMount(){
-    this.props.dispatch(fetchUser())
-  }
   render() {
-    console.log(this.props)
+    if(!this.props.user.id)
+      return(<Login />)
     return (
       <div className="wrapper">
         <div className="menu">
           <div>Private Chat</div>
           <div className="user">{this.props.user.name}</div>
         </div>
-        <UserList />
+        <FriendList />
         <div>Hi wats up?</div>
       </div>
     );

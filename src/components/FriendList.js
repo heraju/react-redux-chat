@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../css/App.css';
 
 
-class Layout extends Component {
+class FriendList extends Component {
   render() {
     return (
       <div className="friends-list">
@@ -14,4 +14,4 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+export default FriendList;

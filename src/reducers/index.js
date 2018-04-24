@@ -1,4 +1,5 @@
 import { combineReducers } from "redux"
+import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase'
 
 import user from "./userReducer"
 import message from "./messageReducer"
