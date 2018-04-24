@@ -4,7 +4,12 @@ import '../App.css';
 
 class Layout extends Component {
   render() {
-    return (<div>Priya</div>
+    return (
+      <div className="friends-list">
+        <div className="selected">Ram</div>
+        <div>Nithya</div>
+        <div>Priya</div>
+      </div>
     );
   }
 }
