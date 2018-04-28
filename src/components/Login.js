@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import '../css/App.css';
-import { fetchUser } from "../actions/userActions"
+import { fetchUser, googleLogin, twitterLogin } from "../actions/userActions"
+import SocialLogin from './SocialLogin'
 
 function mapStateToProps(store){
-  return { user: store.user.user, fs_client: store.firebase};
+  return { user: store.user.user};
 
 }
 
@@ -25,9 +26,10 @@ class Login extends Component{
         <input type='text' id='uname' placeholder='Email' />
         <input type='password' id='pass' placeholder='Password' />
         <button onClick={this.login.bind(this)}>login</button>
+        <SocialLogin {...this.props} />
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, {googleLogin, twitterLogin})(Login);

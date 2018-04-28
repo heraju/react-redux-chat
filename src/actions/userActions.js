@@ -1,18 +1,23 @@
-import { app, auth } from '../helpers/fireClient'
+import { app, auth, twitterProvider, goggleProvier } from '../helpers/fireClient'
 
-export function fetchUser(payload, dispatcher) {
-  auth.signInWithEmailAndPassword(payload.uname, payload.pass)
-  .catch(error => {console.log(error);})
-  .then(user => {
-    dispatcher({
-      type: "FETCH_USER_FULFILLED",
-      payload: {
-      name: user.email,
-      id: user.uid
-      }
+export function fetchUser(payload){
+  return function(dispatch) {
+    dispatch({type: "FETCH_USER"});
+    auth.signInWithEmailAndPassword(payload.uname, payload.pass)
+    .catch(error => {console.log(error);})
+    .then(user => {
+      dispatch({
+        type: "AUTH_USER_SET",
+        payload: user
+      })
     })
-  })
-  return { type: "FETCH_USER"}
+  }
 }
 
+export function googleLogin(){
+  return dispatch => auth.signInWithPopup(goggleProvier);
+}
 
+export function twitterLogin(){
+  return dispatch => auth.signInWithPopup(twitterProvider);
+}

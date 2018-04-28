@@ -1,4 +1,6 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
+import 'firebase/firestore';
+
 const firebaseConfig = {
                           apiKey: "AIzaSyCPOWEY3hj-W8gZwJYkGw_qZFFSMslvSt0",
                           authDomain: "private-chat-a83b5.firebaseapp.com",
@@ -9,9 +11,13 @@ const firebaseConfig = {
                        }
 
 const app = firebase.initializeApp(firebaseConfig)
-const auth = firebase.auth()
+const auth = app.auth()
+const goggleProvier = new firebase.auth.GoogleAuthProvider();
+const twitterProvider = new firebase.auth.TwitterAuthProvider();
+const db = firebase.firestore()
 
-export { app, auth}
+export { app, auth, db, twitterProvider, goggleProvier}
 
 
 
+//firebase.database().ref('users').orderByChild('updatedAt')
