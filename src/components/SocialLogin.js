@@ -9,7 +9,7 @@ const SocialLogin = (props) => {
       <a href="#" className="btn btn-social btn-google" onClick={googleLogin}>
         <span className="fa fa-google"/>Sign in with Google
       </a>
-      <a href="#" className="btn btn-social btn-twitter" onClick={googleLogin}>
+      <a href="#" className="btn btn-social btn-twitter" onClick={twitterLogin}>
         <span className="fa fa-twitter"/>Sign in with Twitter
       </a>
     </div>

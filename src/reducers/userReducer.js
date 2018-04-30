@@ -1,8 +1,5 @@
 export default function reducer(state = {
-  user: {
-    id: null,
-    name: null
-  },
+  user: null,
   fetching: false,
   fetched: false,
   error: null
@@ -14,7 +11,10 @@ export default function reducer(state = {
     case "FETCH_USER_FULFILLED":{
       return {...state, fetching: false, fetched: true, user: action.payload}
     }
-
+    case "DISCARD_USER":{
+      debugger;
+      return {...state, fetching: false, fetched: false, user: null}
+    }
   }
 
   return state

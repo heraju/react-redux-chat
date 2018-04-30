@@ -5,7 +5,6 @@ export function fetchFriends(dispatcher) {
     var friends = []
     querySnapshot.forEach((doc) => {
       var data = doc.data()
-      debugger;
       friends.push({id: doc.id, first_name: doc.data().first_name, last_name: doc.data().last_name})
     });
     dispatcher({

@@ -6,8 +6,9 @@ import '../css/App.css'
 import FriendList from './FriendList'
 import Menu from './Menu'
 import Login from './Login'
+import Profile from './Profile'
 
-import { fetchUser } from "../actions/userActions"
+import { fetchUser, getUser } from "../actions/userActions"
 
 function mapStateToProps(store) {
   return {
@@ -17,11 +18,20 @@ function mapStateToProps(store) {
 }
 
 class Layout extends React.Component {
+
   render() {
+    debugger;
     if(!this.props.authUser)
-      return( <Login />)
+      return( <Login />);
+    if(!this.props.user)
+      return(
+        <div className="wrapper fa">
+          <Menu />
+          <Profile />
+        </div>
+      );
     return (
-      <div className="wrapper">
+      <div className="wrapper fa">
         <Menu />
         <FriendList />
         <div>Hi wats up?</div>

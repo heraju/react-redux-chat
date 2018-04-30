@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { app, auth } from '../helpers/fireClient'
 
 import '../css/App.css';
-import { fetchUser } from "../actions/userActions"
+import { fetchUser, getUser } from "../actions/userActions"
 
 function mapStateToProps(store){
   return {
@@ -21,7 +21,7 @@ class Menu extends Component{
   render() {
     return (
       <div className="menu">
-        <div>Private Chat</div>
+        <div className="fa fa-comments"> Personal</div>
         <div className="user">
           {this.props.authUser.email}
           <button type="button" onClick={this.signOut.bind(this)}>Sign Out</button>

@@ -3,7 +3,6 @@ export default function reducer(state={
   }, action){
   switch(action.type){
     case "AUTH_USER_SET":{
-      debugger;
       return {...state, authUser: action.payload}
     }
   }

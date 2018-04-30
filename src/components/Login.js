@@ -13,10 +13,9 @@ function mapStateToProps(store){
 class Login extends Component{
 
   login() {
-    debugger;
     var uname = document.getElementById('uname').value;
     var pass = document.getElementById('pass').value;
-    this.props.dispatch(fetchUser({uname: uname, pass: pass}, this.props.dispatch))
+    fetchUser({uname: uname, pass: pass});
   }
 
   render() {

@@ -10,6 +10,7 @@ function mapStateToProps(store) {
 }
 
 class FriendList extends Component {
+
   componentWillMount(){
     this.props.dispatch(fetchFriends(this.props.dispatch))
   }
